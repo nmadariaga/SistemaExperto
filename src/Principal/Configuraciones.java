@@ -12,6 +12,7 @@ package Principal;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
+import java.security.CodeSource;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -81,14 +82,14 @@ public class Configuraciones extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("18 a 24 años");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(110, 125, 66, 16);
+        jLabel4.setBounds(110, 125, 64, 16);
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Noto Sans", 0, 11)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("25 a 34 años");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(110, 159, 66, 16);
+        jLabel5.setBounds(110, 159, 64, 16);
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Noto Sans", 0, 11)); // NOI18N
@@ -96,47 +97,47 @@ public class Configuraciones extends javax.swing.JFrame {
         jLabel6.setText("35 a 44 años");
         jLabel6.setToolTipText("");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(110, 193, 66, 16);
+        jLabel6.setBounds(110, 193, 64, 16);
 
         jLabel7.setFont(new java.awt.Font("Noto Sans", 0, 11)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("45 a 54 años");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(110, 227, 66, 16);
+        jLabel7.setBounds(110, 227, 64, 16);
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Noto Sans", 0, 11)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("55 a 65 años");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(110, 261, 66, 16);
+        jLabel8.setBounds(110, 261, 64, 16);
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Noto Sans", 0, 11)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Edad");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(80, 100, 27, 16);
+        jLabel9.setBounds(80, 100, 26, 16);
 
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setFont(new java.awt.Font("Noto Sans", 0, 11)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Sexo");
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(80, 290, 26, 16);
+        jLabel10.setBounds(80, 290, 25, 16);
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setFont(new java.awt.Font("Noto Sans", 0, 11)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Mujer");
         getContentPane().add(jLabel11);
-        jLabel11.setBounds(140, 302, 32, 16);
+        jLabel11.setBounds(140, 302, 31, 16);
 
         jLabel12.setFont(new java.awt.Font("Noto Sans", 0, 11)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Hombre");
         getContentPane().add(jLabel12);
-        jLabel12.setBounds(130, 336, 45, 16);
+        jLabel12.setBounds(130, 336, 43, 16);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/btnAbrir1.png"))); // NOI18N
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -254,52 +255,92 @@ public class Configuraciones extends javax.swing.JFrame {
     public void abrirarchivo(String archivo){
 
      try {
-
             File objetofile = new File (archivo);
             Desktop.getDesktop().open(objetofile);
-            JOptionPane.showMessageDialog(rootPane, "Correcto!");
+            //JOptionPane.showMessageDialog(rootPane, "Correcto!");
      }catch (IOException ex) {
 
             System.out.println(ex);
             JOptionPane.showMessageDialog(rootPane, ex);
-
      }
-
-    }                         
+    }
+    
+    //Esta funcion encuentra la ruta en la que se encuentra el JAR y busca los archivos Properties
+    public static File obtenerRutaJar()
+    {
+        File jarDir= null;
+        try {
+            CodeSource codeSource = Configuraciones.class.getProtectionDomain().getCodeSource();
+            File jarFile = new File(codeSource.getLocation().toURI().getPath());
+            jarDir = jarFile.getParentFile();
+        } 
+        catch (Exception e) {
+        }
+        return jarDir;
+    }
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here: 
-        abrirarchivo("src/Properties/edad_18_24.properties");
+        // TODO add your handling code here:
+        try {
+            abrirarchivo(obtenerRutaJar()+"/Properties/edad_18_24.properties");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "No se pudo cargar el archivo, revise las rutas");
+        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        abrirarchivo("src/Properties/edad_25_34.properties");
+        try {
+            abrirarchivo(obtenerRutaJar()+"/Properties/edad_25_34.properties");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "No se pudo cargar el archivo, revise las rutas");
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        abrirarchivo("/Properties/edad_35_44.properties");
+        try {
+            abrirarchivo(obtenerRutaJar()+"/Properties/edad_35_44.properties");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "No se pudo cargar el archivo, revise las rutas");
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        abrirarchivo("/src/Properties/edad_45_54.properties");
+        try {
+            abrirarchivo(obtenerRutaJar()+"/Properties/edad_45_54.properties");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "No se pudo cargar el archivo, revise las rutas");
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        abrirarchivo("/src/Properties/edad_55_65.properties");
+        try {
+            abrirarchivo(obtenerRutaJar()+"/Properties/edad_55_65.properties");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "No se pudo cargar el archivo, revise las rutas");
+        }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        abrirarchivo("/src/Properties/sexo_mujer.properties");
+        try {
+            abrirarchivo(obtenerRutaJar()+"/Properties/sexo_mujer.properties");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "No se pudo cargar el archivo, revise las rutas");
+        }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
-        abrirarchivo("/src/Properties/sexo_hombre.properties");
+        try {
+            abrirarchivo(obtenerRutaJar()+"/Properties/sexo_hombre.properties");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "No se pudo cargar el archivo, revise las rutas");
+        }
     }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
