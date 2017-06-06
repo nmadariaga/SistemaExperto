@@ -28,6 +28,7 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.io.IOException;
 import java.util.Calendar;
+import Principal.Configuraciones;
 
 
 /**
@@ -397,7 +398,7 @@ public class CalcularPuntajes {
                 ResultadosFinales.add("0");
                 coordY= "M";
             }
-            propiedades.load(new FileInputStream("src/Properties/coordenadas.properties"));
+            propiedades.load(new FileInputStream(Configuraciones.obtenerRutaJar()+"/Properties/coordenadas.properties"));
             String Resultado= propiedades.getProperty(coordX+"_"+coordY);
             ResultadosFinales.add(Resultado);
         }

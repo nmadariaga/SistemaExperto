@@ -163,11 +163,11 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
         getContentPane().add(FormaPagoCB);
-        FormaPagoCB.setBounds(140, 260, 150, 23);
+        FormaPagoCB.setBounds(140, 260, 150, 24);
 
         SexoCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Ambos", "Mujer", "Hombre" }));
         getContentPane().add(SexoCB);
-        SexoCB.setBounds(140, 300, 150, 23);
+        SexoCB.setBounds(140, 300, 150, 24);
 
         TipoNegCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Servicio", "Producto" }));
         TipoNegCB.addActionListener(new java.awt.event.ActionListener() {
@@ -176,12 +176,12 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
         getContentPane().add(TipoNegCB);
-        TipoNegCB.setBounds(560, 260, 140, 23);
+        TipoNegCB.setBounds(560, 260, 140, 24);
 
         NegCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione" }));
         NegCB.setEnabled(false);
         getContentPane().add(NegCB);
-        NegCB.setBounds(560, 300, 140, 23);
+        NegCB.setBounds(560, 300, 140, 24);
 
         CostoProdTF.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
