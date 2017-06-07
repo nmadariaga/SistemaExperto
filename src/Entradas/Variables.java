@@ -17,6 +17,15 @@ public class Variables {
     private String CostoProduccion;
     private String Utilidades;
     private String TipoNegocio;
+    private String NombreNeg;
+
+    public String getNombreNeg() {
+        return NombreNeg;
+    }
+
+    public void setNombreNeg(String NombreNeg) {
+        this.NombreNeg = NombreNeg;
+    }
 
     public String getEdad() {
         return Edad;

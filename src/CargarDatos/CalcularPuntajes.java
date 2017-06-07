@@ -29,6 +29,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import java.io.IOException;
 import java.util.Calendar;
 import Principal.Configuraciones;
+import DataBase.FuncionesDB;
 
 
 /**
@@ -321,6 +322,7 @@ public class CalcularPuntajes {
             resultadoMsjTA.setEditable(false);
             fondoResultadosLbl.add(resultadoMsjTA);
             
+            guardarEnDB(DatosIngresados, resultados);
             CrearPdf(fondoResultadosLbl, DatosIngresados, resultados);
                     
             
@@ -475,6 +477,12 @@ public class CalcularPuntajes {
             fondoResultadosLbl.add(pdfBtn);
         }
         catch (Exception e) {
-        }
+        }       
+        
+    }
+    
+    private static void guardarEnDB(Variables DatosIngresados, ArrayList<String> resultados)
+    {
+            FuncionesDB.Insert(DatosIngresados, resultados);
     }
 }

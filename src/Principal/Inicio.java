@@ -72,6 +72,8 @@ public class Inicio extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        NombreNegLbl = new javax.swing.JLabel();
+        NombreNegTF = new javax.swing.JTextField();
         FondoPrincipalLbl = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         JMenuOpciones = new javax.swing.JMenu();
@@ -84,9 +86,7 @@ public class Inicio extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema Experto");
         setLocation(new java.awt.Point(300, 100));
-        setMaximumSize(new java.awt.Dimension(800, 500));
         setMinimumSize(new java.awt.Dimension(810, 500));
-        setPreferredSize(new java.awt.Dimension(800, 500));
         setResizable(false);
         setSize(new java.awt.Dimension(800, 500));
         getContentPane().setLayout(null);
@@ -214,7 +214,7 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
         getContentPane().add(EnviarBtn);
-        EnviarBtn.setBounds(330, 350, 140, 30);
+        EnviarBtn.setBounds(330, 400, 140, 30);
 
         jLabel1.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
         jLabel1.setForeground(java.awt.Color.white);
@@ -263,6 +263,14 @@ public class Inicio extends javax.swing.JFrame {
         jLabel8.setText("UNIVERSIDAD TECNCOLÓGICA METROPOLITANA");
         getContentPane().add(jLabel8);
         jLabel8.setBounds(240, 60, 320, 20);
+
+        NombreNegLbl.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
+        NombreNegLbl.setForeground(java.awt.Color.white);
+        NombreNegLbl.setText("Nombre Negocio:");
+        getContentPane().add(NombreNegLbl);
+        NombreNegLbl.setBounds(80, 350, 130, 20);
+        getContentPane().add(NombreNegTF);
+        NombreNegTF.setBounds(220, 340, 370, 30);
 
         FondoPrincipalLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/FondoPrincipal.png"))); // NOI18N
         getContentPane().add(FondoPrincipalLbl);
@@ -316,7 +324,9 @@ public class Inicio extends javax.swing.JFrame {
     private void EdadTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EdadTFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_EdadTFActionPerformed
-
+    
+    
+    //Ejecucion del programa y evaluacion de campos vacíos.
     private void EnviarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnviarBtnActionPerformed
         // TODO add your handling code here:
         String Mensaje = null;
@@ -331,13 +341,14 @@ public class Inicio extends javax.swing.JFrame {
             DatosIngresados.setCostoProduccion(CostoProdTF.getText());
             DatosIngresados.setUtilidades(UtilidadesTF.getText());
             DatosIngresados.setTipoNegocio(NegCB.getSelectedItem().toString());
+            DatosIngresados.setNombreNeg(NombreNegTF.getText());
 
             if(NegCB.getSelectedItem().toString().equals("Seleccione") || FormaPagoCB.getSelectedItem().toString().equals("Seleccione") || SexoCB.getSelectedItem().toString().equals("Seleccione") || TipoNegCB.getSelectedItem().toString().equals("Seleccione"))
             {
                 Mensaje = "Una o más variables no poseen valor";        
                 cuadroDialogo(Mensaje);
             }
-            else if(EdadTF.getText().isEmpty() || SueldoTF.getText().isEmpty() || CostoProdTF.getText().isEmpty() || UtilidadesTF.getText().isEmpty())
+            else if(EdadTF.getText().isEmpty() || SueldoTF.getText().isEmpty() || CostoProdTF.getText().isEmpty() || UtilidadesTF.getText().isEmpty() || NombreNegTF.getText().isEmpty())
             {
                 Mensaje = "Una o más variables no poseen valor";        
                 cuadroDialogo(Mensaje);
@@ -397,7 +408,9 @@ public class Inicio extends javax.swing.JFrame {
         conf.setVisible(true);
         
     }//GEN-LAST:event_jMenuConfigActionPerformed
-
+    
+    
+    //Permite al campo Edad ingresar sólo numeros
     private void EdadTFKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_EdadTFKeyTyped
         // TODO add your handling code here:
         char validar= evt.getKeyChar();
@@ -409,7 +422,8 @@ public class Inicio extends javax.swing.JFrame {
             cuadroDialogo("Se debe ingresar sólo números.");
         }
     }//GEN-LAST:event_EdadTFKeyTyped
-
+    
+    //Permite al campo CostoProd ingresar sólo numeros
     private void CostoProdTFKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CostoProdTFKeyTyped
         // TODO add your handling code here:
         char validar= evt.getKeyChar();
@@ -421,7 +435,8 @@ public class Inicio extends javax.swing.JFrame {
             cuadroDialogo("Se debe ingresar sólo números.");
         }
     }//GEN-LAST:event_CostoProdTFKeyTyped
-
+    
+    //Permite al campo Sueldo ingresar sólo numeros
     private void SueldoTFKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SueldoTFKeyTyped
         // TODO add your handling code here:
         char validar= evt.getKeyChar();
@@ -433,7 +448,8 @@ public class Inicio extends javax.swing.JFrame {
             cuadroDialogo("Se debe ingresar sólo números.");
         }
     }//GEN-LAST:event_SueldoTFKeyTyped
-
+    
+    //Permite al campo Utilidades ingresar sólo numeros
     private void UtilidadesTFKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_UtilidadesTFKeyTyped
         // TODO add your handling code here:
         char validar= evt.getKeyChar();
@@ -507,6 +523,8 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JLabel FormaPagoLbl;
     private javax.swing.JMenu JMenuOpciones;
     private javax.swing.JComboBox<String> NegCB;
+    private javax.swing.JLabel NombreNegLbl;
+    private javax.swing.JTextField NombreNegTF;
     private javax.swing.JLabel PrecioVentaLbl;
     private javax.swing.JComboBox<String> SexoCB;
     private javax.swing.JLabel SexoLbl;
