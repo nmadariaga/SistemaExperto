@@ -17,6 +17,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import CargarDatos.CargarDatos;
 import javax.swing.ImageIcon;
+import Principal.Registros;
+import java.awt.Color;
 
 public class Inicio extends javax.swing.JFrame {
 
@@ -73,6 +75,7 @@ public class Inicio extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         NombreNegLbl = new javax.swing.JLabel();
+        verRegistrosLbl = new javax.swing.JLabel();
         NombreNegTF = new javax.swing.JTextField();
         FondoPrincipalLbl = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
@@ -269,6 +272,23 @@ public class Inicio extends javax.swing.JFrame {
         NombreNegLbl.setText("Nombre Negocio:");
         getContentPane().add(NombreNegLbl);
         NombreNegLbl.setBounds(80, 350, 130, 20);
+
+        verRegistrosLbl.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
+        verRegistrosLbl.setForeground(java.awt.Color.white);
+        verRegistrosLbl.setText("Ver registros..");
+        verRegistrosLbl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                verRegistrosLblMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                verRegistrosLblMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                verRegistrosLblMouseEntered(evt);
+            }
+        });
+        getContentPane().add(verRegistrosLbl);
+        verRegistrosLbl.setBounds(60, 400, 130, 20);
         getContentPane().add(NombreNegTF);
         NombreNegTF.setBounds(220, 340, 370, 30);
 
@@ -468,6 +488,22 @@ public class Inicio extends javax.swing.JFrame {
         about.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void verRegistrosLblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verRegistrosLblMouseClicked
+        // TODO add your handling code here:
+        Registros reg = new Registros();
+        reg.setVisible(true);
+    }//GEN-LAST:event_verRegistrosLblMouseClicked
+
+    private void verRegistrosLblMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verRegistrosLblMouseEntered
+        // TODO add your handling code here:
+        verRegistrosLbl.setForeground(Color.LIGHT_GRAY);
+    }//GEN-LAST:event_verRegistrosLblMouseEntered
+
+    private void verRegistrosLblMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verRegistrosLblMouseExited
+        // TODO add your handling code here:
+        verRegistrosLbl.setForeground(Color.white);
+    }//GEN-LAST:event_verRegistrosLblMouseExited
+
     /**
      * 
      * @param args the command line arguments
@@ -547,5 +583,6 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuSalir;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JLabel verRegistrosLbl;
     // End of variables declaration//GEN-END:variables
 }

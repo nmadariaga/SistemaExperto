@@ -13,6 +13,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import Entradas.Registro;
+import java.util.List;
 
 /**
  *
@@ -131,4 +133,46 @@ public class FuncionesDB {
         }
         return sql;
     }
+    
+    public static List<Registro> mostrarTodo()
+    {
+        Connection c = null;
+        Statement stmt = null;
+        List<Registro> registroLista = new ArrayList<Registro>();
+        try {
+            Class.forName("org.sqlite.JDBC");
+            c = DriverManager.getConnection("jdbc:sqlite:DataBase/SE_DATABASE.db");
+            c.setAutoCommit(false);
+            System.out.println("Opened database successfully");
+        
+        
+            stmt = c.createStatement();
+            ResultSet rs = stmt.executeQuery( "SELECT * FROM Registro_Consultas_Tbl;" );
+            while ( rs.next() ) {
+                Registro reg = new Registro();
+                reg.setId(rs.getInt("Id"));
+                reg.setNombreNeg(rs.getString("Nombre_Negocio"));
+                reg.setEdad(rs.getInt("Edad"));
+                reg.setCostoProd(rs.getFloat("Costo_Prod"));
+                reg.setSueldo(rs.getFloat("Sueldo_Prom"));
+                reg.setUtilidades(rs.getFloat("Utilidades"));
+                reg.setFormaPago(rs.getString("Forma_Pago"));
+                reg.setNegocio(rs.getString("Negocio"));
+                reg.setSexo(rs.getString("Sexo"));
+                reg.setCompatibilidad(rs.getString("Compatibilidad"));
+                reg.setRelacionPS(rs.getString("RelacionPS"));
+                reg.setResumen(rs.getString("Resumen"));
+                reg.setFecha(rs.getString("Fecha"));
+                
+                registroLista.add(reg);
+            }
+            rs.close();
+            stmt.close();
+            c.close();
+            
+        } catch (Exception e) {
+        }
+    return registroLista;
+    }
+    
 }
