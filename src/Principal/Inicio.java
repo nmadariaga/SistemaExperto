@@ -9,15 +9,10 @@ package Principal;
  *
  * @author nmadariaga
  */
-import Properties.LeerProperties;
 import Entradas.Variables;
-import java.util.HashSet;
-import java.util.Set;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import CargarDatos.CargarDatos;
 import javax.swing.ImageIcon;
-import Principal.Registros;
 import java.awt.Color;
 
 public class Inicio extends javax.swing.JFrame {
@@ -77,6 +72,7 @@ public class Inicio extends javax.swing.JFrame {
         NombreNegLbl = new javax.swing.JLabel();
         verRegistrosLbl = new javax.swing.JLabel();
         NombreNegTF = new javax.swing.JTextField();
+        cerrarLbl = new javax.swing.JLabel();
         FondoPrincipalLbl = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         JMenuOpciones = new javax.swing.JMenu();
@@ -259,13 +255,13 @@ public class Inicio extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(208, 219, 225));
         jLabel7.setText("Sistema Experto para la evaluacion de Negocios");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(120, 10, 560, 50);
+        jLabel7.setBounds(120, 10, 590, 50);
 
         jLabel8.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(208, 219, 225));
         jLabel8.setText("UNIVERSIDAD TECNCOLÓGICA METROPOLITANA");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(240, 60, 320, 20);
+        jLabel8.setBounds(240, 60, 370, 20);
 
         NombreNegLbl.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
         NombreNegLbl.setForeground(java.awt.Color.white);
@@ -276,6 +272,7 @@ public class Inicio extends javax.swing.JFrame {
         verRegistrosLbl.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
         verRegistrosLbl.setForeground(java.awt.Color.white);
         verRegistrosLbl.setText("Ver registros..");
+        verRegistrosLbl.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         verRegistrosLbl.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 verRegistrosLblMouseClicked(evt);
@@ -291,6 +288,24 @@ public class Inicio extends javax.swing.JFrame {
         verRegistrosLbl.setBounds(60, 400, 130, 20);
         getContentPane().add(NombreNegTF);
         NombreNegTF.setBounds(220, 340, 370, 30);
+
+        cerrarLbl.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
+        cerrarLbl.setForeground(java.awt.Color.white);
+        cerrarLbl.setText("Salir");
+        cerrarLbl.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cerrarLbl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cerrarLblMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                cerrarLblMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                cerrarLblMouseEntered(evt);
+            }
+        });
+        getContentPane().add(cerrarLbl);
+        cerrarLbl.setBounds(680, 400, 51, 20);
 
         FondoPrincipalLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/FondoPrincipal.png"))); // NOI18N
         getContentPane().add(FondoPrincipalLbl);
@@ -501,8 +516,23 @@ public class Inicio extends javax.swing.JFrame {
 
     private void verRegistrosLblMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verRegistrosLblMouseExited
         // TODO add your handling code here:
-        verRegistrosLbl.setForeground(Color.white);
+        verRegistrosLbl.setForeground(Color.WHITE);
     }//GEN-LAST:event_verRegistrosLblMouseExited
+
+    private void cerrarLblMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cerrarLblMouseEntered
+        // TODO add your handling code here:
+        cerrarLbl.setForeground(Color.LIGHT_GRAY);
+    }//GEN-LAST:event_cerrarLblMouseEntered
+
+    private void cerrarLblMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cerrarLblMouseExited
+        // TODO add your handling code here:
+        cerrarLbl.setForeground(Color.WHITE);
+    }//GEN-LAST:event_cerrarLblMouseExited
+
+    private void cerrarLblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cerrarLblMouseClicked
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_cerrarLblMouseClicked
 
     /**
      * 
@@ -569,6 +599,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> TipoNegCB;
     private javax.swing.JLabel TipoNegLbl;
     private javax.swing.JTextField UtilidadesTF;
+    private javax.swing.JLabel cerrarLbl;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

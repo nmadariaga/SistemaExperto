@@ -13,8 +13,10 @@ import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
 import Entradas.Registro;
 import DataBase.FuncionesDB;
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JLabel;
 
 public class Registros extends javax.swing.JFrame {
 
@@ -26,27 +28,44 @@ public class Registros extends javax.swing.JFrame {
         DefaultTableModel model;
         model = (DefaultTableModel) registrosTbl.getModel();
         List<Registro> lista = FuncionesDB.mostrarTodo();
-        Object rowData[] = new Object[13];
-        System.out.println("Llenando tabla...");
-        for(int i =0; i< lista.size(); i++)
-        {
-            System.out.println("numero "+i+1);
+        if(lista.isEmpty())
+        {            
+            jScrollPane1.setVisible(false);
+            registrosTbl.setVisible(false);
+            
+            JLabel mensaje = new JLabel();
+            mensaje.setText("No se han realizado consultas");
+            mensaje.setForeground(Color.WHITE);
+            mensaje.setBounds(250, 180, 330, 40);
+            mensaje.setVisible(true);
+            
+            FondoRegistroLbl.add(mensaje);
+            
+            
+        }else{
+            Object rowData[] = new Object[13];
+            System.out.println("Llenando tabla...");
+            for(int i =0; i< lista.size(); i++)
+            {
+                System.out.println("numero "+i+1);
 
-            rowData[0]= lista.get(i).getId();
-            rowData[1]= lista.get(i).getNombreNeg();
-            rowData[2]= lista.get(i).getEdad();
-            rowData[3]= lista.get(i).getCostoProd();
-            rowData[4]= lista.get(i).getSueldo();
-            rowData[5]= lista.get(i).getUtilidades();
-            rowData[6]= lista.get(i).getFormaPago();
-            rowData[7]= lista.get(i).getNegocio();
-            rowData[8]= lista.get(i).getSexo();
-            rowData[9]= lista.get(i).getCompatibilidad();
-            rowData[10]= lista.get(i).getRelacionPS();
-            rowData[11]= lista.get(i).getResumen();
-            rowData[12]= lista.get(i).getFecha();
-            model.addRow(rowData);
+                rowData[0]= lista.get(i).getId();
+                rowData[1]= lista.get(i).getNombreNeg();
+                rowData[2]= lista.get(i).getEdad();
+                rowData[3]= lista.get(i).getCostoProd();
+                rowData[4]= lista.get(i).getSueldo();
+                rowData[5]= lista.get(i).getUtilidades();
+                rowData[6]= lista.get(i).getFormaPago();
+                rowData[7]= lista.get(i).getNegocio();
+                rowData[8]= lista.get(i).getSexo();
+                rowData[9]= lista.get(i).getCompatibilidad();
+                rowData[10]= lista.get(i).getRelacionPS();
+                rowData[11]= lista.get(i).getResumen();
+                rowData[12]= lista.get(i).getFecha();
+                model.addRow(rowData);
+            }
         }
+        
         System.out.println("Fin");
     }
     
@@ -67,14 +86,17 @@ public class Registros extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         registrosTbl = new javax.swing.JTable();
+        VisualizacionLbl = new javax.swing.JLabel();
+        cerrarLbl = new javax.swing.JLabel();
+        FondoRegistroLbl = new javax.swing.JLabel();
 
         setTitle("Registro de consultas");
-        setBounds(new java.awt.Rectangle(300, 200, 0, 0));
-        setMaximumSize(new java.awt.Dimension(700, 500));
-        setMinimumSize(new java.awt.Dimension(700, 500));
-        setPreferredSize(new java.awt.Dimension(700, 500));
-        setResizable(false);
-        setSize(new java.awt.Dimension(700, 500));
+        setBounds(new java.awt.Rectangle(350, 130, 0, 0));
+        setMaximumSize(new java.awt.Dimension(700, 420));
+        setMinimumSize(new java.awt.Dimension(700, 420));
+        setPreferredSize(new java.awt.Dimension(700, 420));
+        setSize(new java.awt.Dimension(700, 420));
+        getContentPane().setLayout(null);
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
         jScrollPane1.setMaximumSize(new java.awt.Dimension(500, 100));
@@ -101,7 +123,7 @@ public class Registros extends javax.swing.JFrame {
         registrosTbl.setColumnSelectionAllowed(true);
         registrosTbl.setMinimumSize(new java.awt.Dimension(195, 64));
         registrosTbl.setName(""); // NOI18N
-        registrosTbl.setPreferredSize(new java.awt.Dimension(1250, 64));
+        registrosTbl.setPreferredSize(new java.awt.Dimension(1150, 64));
         registrosTbl.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(registrosTbl);
         registrosTbl.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
@@ -112,18 +134,18 @@ public class Registros extends javax.swing.JFrame {
             registrosTbl.getColumnModel().getColumn(1).setMinWidth(100);
             registrosTbl.getColumnModel().getColumn(1).setPreferredWidth(100);
             registrosTbl.getColumnModel().getColumn(1).setMaxWidth(100);
-            registrosTbl.getColumnModel().getColumn(2).setMinWidth(100);
-            registrosTbl.getColumnModel().getColumn(2).setPreferredWidth(100);
-            registrosTbl.getColumnModel().getColumn(2).setMaxWidth(100);
+            registrosTbl.getColumnModel().getColumn(2).setMinWidth(50);
+            registrosTbl.getColumnModel().getColumn(2).setPreferredWidth(50);
+            registrosTbl.getColumnModel().getColumn(2).setMaxWidth(50);
             registrosTbl.getColumnModel().getColumn(3).setMinWidth(100);
             registrosTbl.getColumnModel().getColumn(3).setPreferredWidth(100);
             registrosTbl.getColumnModel().getColumn(3).setMaxWidth(100);
             registrosTbl.getColumnModel().getColumn(4).setMinWidth(100);
             registrosTbl.getColumnModel().getColumn(4).setPreferredWidth(100);
             registrosTbl.getColumnModel().getColumn(4).setMaxWidth(100);
-            registrosTbl.getColumnModel().getColumn(5).setMinWidth(100);
-            registrosTbl.getColumnModel().getColumn(5).setPreferredWidth(100);
-            registrosTbl.getColumnModel().getColumn(5).setMaxWidth(100);
+            registrosTbl.getColumnModel().getColumn(5).setMinWidth(50);
+            registrosTbl.getColumnModel().getColumn(5).setPreferredWidth(50);
+            registrosTbl.getColumnModel().getColumn(5).setMaxWidth(50);
             registrosTbl.getColumnModel().getColumn(6).setMinWidth(100);
             registrosTbl.getColumnModel().getColumn(6).setPreferredWidth(100);
             registrosTbl.getColumnModel().getColumn(6).setMaxWidth(100);
@@ -147,25 +169,54 @@ public class Registros extends javax.swing.JFrame {
             registrosTbl.getColumnModel().getColumn(12).setMaxWidth(100);
         }
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(67, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 574, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(96, 96, 96)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(154, Short.MAX_VALUE))
-        );
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(60, 90, 580, 240);
+
+        VisualizacionLbl.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
+        VisualizacionLbl.setForeground(new java.awt.Color(72, 97, 123));
+        VisualizacionLbl.setText("VISUALIZACION DE CONSULTAS REALIZADAS");
+        getContentPane().add(VisualizacionLbl);
+        VisualizacionLbl.setBounds(190, 30, 320, 20);
+
+        cerrarLbl.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
+        cerrarLbl.setForeground(java.awt.Color.white);
+        cerrarLbl.setText("Cerrar");
+        cerrarLbl.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cerrarLbl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cerrarLblMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                cerrarLblMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                cerrarLblMouseEntered(evt);
+            }
+        });
+        getContentPane().add(cerrarLbl);
+        cerrarLbl.setBounds(310, 340, 51, 20);
+
+        FondoRegistroLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/FondoRegistros.png"))); // NOI18N
+        getContentPane().add(FondoRegistroLbl);
+        FondoRegistroLbl.setBounds(0, 0, 700, 400);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cerrarLblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cerrarLblMouseClicked
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_cerrarLblMouseClicked
+
+    private void cerrarLblMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cerrarLblMouseEntered
+        // TODO add your handling code here:
+        cerrarLbl.setForeground(Color.LIGHT_GRAY);
+    }//GEN-LAST:event_cerrarLblMouseEntered
+
+    private void cerrarLblMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cerrarLblMouseExited
+        // TODO add your handling code here:
+        cerrarLbl.setForeground(Color.WHITE);
+    }//GEN-LAST:event_cerrarLblMouseExited
 
     /**
      * @param args the command line arguments
@@ -203,6 +254,9 @@ public class Registros extends javax.swing.JFrame {
     }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel FondoRegistroLbl;
+    private javax.swing.JLabel VisualizacionLbl;
+    private javax.swing.JLabel cerrarLbl;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable registrosTbl;
     // End of variables declaration//GEN-END:variables
