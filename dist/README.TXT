@@ -13,7 +13,7 @@ type the following:
 
 java -jar "SE-Titulacion.jar" 
 
-To distribute this project, zip up the dist folder (including the lib, Database and Properties folders)
+To distribute this project, zip up the dist folder (including the lib folder)
 and distribute the ZIP file.
 
 Notes:

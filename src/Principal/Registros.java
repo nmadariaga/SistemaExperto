@@ -87,7 +87,6 @@ public class Registros extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         registrosTbl = new javax.swing.JTable();
         VisualizacionLbl = new javax.swing.JLabel();
-        cerrarLbl = new javax.swing.JLabel();
         FondoRegistroLbl = new javax.swing.JLabel();
 
         setTitle("Registro de consultas");
@@ -178,45 +177,12 @@ public class Registros extends javax.swing.JFrame {
         getContentPane().add(VisualizacionLbl);
         VisualizacionLbl.setBounds(190, 30, 320, 20);
 
-        cerrarLbl.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        cerrarLbl.setForeground(java.awt.Color.white);
-        cerrarLbl.setText("Cerrar");
-        cerrarLbl.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        cerrarLbl.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                cerrarLblMouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                cerrarLblMouseExited(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                cerrarLblMouseEntered(evt);
-            }
-        });
-        getContentPane().add(cerrarLbl);
-        cerrarLbl.setBounds(310, 340, 51, 20);
-
         FondoRegistroLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/FondoRegistros.png"))); // NOI18N
         getContentPane().add(FondoRegistroLbl);
         FondoRegistroLbl.setBounds(0, 0, 700, 400);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void cerrarLblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cerrarLblMouseClicked
-        // TODO add your handling code here:
-        dispose();
-    }//GEN-LAST:event_cerrarLblMouseClicked
-
-    private void cerrarLblMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cerrarLblMouseEntered
-        // TODO add your handling code here:
-        cerrarLbl.setForeground(Color.LIGHT_GRAY);
-    }//GEN-LAST:event_cerrarLblMouseEntered
-
-    private void cerrarLblMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cerrarLblMouseExited
-        // TODO add your handling code here:
-        cerrarLbl.setForeground(Color.WHITE);
-    }//GEN-LAST:event_cerrarLblMouseExited
 
     /**
      * @param args the command line arguments
@@ -256,7 +222,6 @@ public class Registros extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel FondoRegistroLbl;
     private javax.swing.JLabel VisualizacionLbl;
-    private javax.swing.JLabel cerrarLbl;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable registrosTbl;
     // End of variables declaration//GEN-END:variables
