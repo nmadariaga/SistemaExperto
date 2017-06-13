@@ -152,6 +152,9 @@ public class Inicio extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         TituloPnl = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        acercaDeLbl = new javax.swing.JLabel();
         LeftPnl = new javax.swing.JPanel();
         InicioBtn = new javax.swing.JButton();
         RegistroBtn = new javax.swing.JButton();
@@ -210,20 +213,64 @@ public class Inicio extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Sistema Experto");
+        setLocation(new java.awt.Point(200, 70));
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(41, 69, 92));
 
         TituloPnl.setBackground(new java.awt.Color(27, 40, 56));
 
+        jLabel2.setFont(new java.awt.Font("Ubuntu Light", 1, 24)); // NOI18N
+        jLabel2.setForeground(java.awt.Color.white);
+        jLabel2.setText("SISTEMA EXPERTO PARA LA EVALUACION DE NEGOCIOS");
+
+        jLabel3.setFont(new java.awt.Font("Ubuntu Light", 1, 18)); // NOI18N
+        jLabel3.setForeground(java.awt.Color.white);
+        jLabel3.setText("Universidad Tecnológica Metropolitana");
+
+        acercaDeLbl.setFont(new java.awt.Font("Ubuntu Light", 0, 14)); // NOI18N
+        acercaDeLbl.setForeground(new java.awt.Color(255, 255, 255));
+        acercaDeLbl.setText("Acerca de..");
+        acercaDeLbl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                acercaDeLblMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                acercaDeLblMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                acercaDeLblMouseEntered(evt);
+            }
+        });
+
         javax.swing.GroupLayout TituloPnlLayout = new javax.swing.GroupLayout(TituloPnl);
         TituloPnl.setLayout(TituloPnlLayout);
         TituloPnlLayout.setHorizontalGroup(
             TituloPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(TituloPnlLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(acercaDeLbl)
+                .addGap(25, 25, 25))
+            .addGroup(TituloPnlLayout.createSequentialGroup()
+                .addGap(163, 163, 163)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 649, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(TituloPnlLayout.createSequentialGroup()
+                .addGap(315, 315, 315)
+                .addComponent(jLabel3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         TituloPnlLayout.setVerticalGroup(
             TituloPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 110, Short.MAX_VALUE)
+            .addGroup(TituloPnlLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(acercaDeLbl)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         LeftPnl.setBackground(new java.awt.Color(41, 69, 92));
@@ -257,6 +304,11 @@ public class Inicio extends javax.swing.JFrame {
 
         SalirBtn.setFont(new java.awt.Font("Ubuntu Light", 1, 18)); // NOI18N
         SalirBtn.setText("SALIR");
+        SalirBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SalirBtnActionPerformed(evt);
+            }
+        });
 
         AyudaBtn.setFont(new java.awt.Font("Ubuntu Light", 1, 18)); // NOI18N
         AyudaBtn.setText("AYUDA");
@@ -284,7 +336,7 @@ public class Inicio extends javax.swing.JFrame {
                 .addComponent(RegistroBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addComponent(ConfBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(36, 36, 36)
                 .addComponent(AyudaBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(SalirBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -450,27 +502,33 @@ public class Inicio extends javax.swing.JFrame {
                                 .addComponent(EdadTF, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                         .addGroup(InicioPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(CostoProdLbl)
+                            .addComponent(TipoNegLbl)
                             .addComponent(PrecioVentaLbl)
-                            .addComponent(TipoNegLbl)))
+                            .addComponent(CostoProdLbl))
+                        .addGap(12, 12, 12))
                     .addGroup(InicioPnlLayout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addComponent(SexoCB, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel7)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(InicioPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(CostoProdTF)
-                    .addComponent(UtilidadesTF)
-                    .addComponent(TipoNegCB, 0, 113, Short.MAX_VALUE)
-                    .addComponent(NegCB, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(InicioPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(25, 25, 25))
+                    .addGroup(InicioPnlLayout.createSequentialGroup()
+                        .addGroup(InicioPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(UtilidadesTF)
+                            .addComponent(CostoProdTF))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(InicioPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addGap(25, 25, 25))
+                    .addGroup(InicioPnlLayout.createSequentialGroup()
+                        .addGroup(InicioPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(TipoNegCB, javax.swing.GroupLayout.Alignment.LEADING, 0, 135, Short.MAX_VALUE)
+                            .addComponent(NegCB, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 72, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InicioPnlLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -517,7 +575,7 @@ public class Inicio extends javax.swing.JFrame {
                     .addGroup(InicioPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(NegCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel7)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                 .addGroup(InicioPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(NombreNegLbl)
                     .addComponent(NombreNegTF, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -529,6 +587,7 @@ public class Inicio extends javax.swing.JFrame {
         CenterPnl.add(InicioPnl, "card2");
 
         RegPnl.setBackground(new java.awt.Color(27, 40, 56));
+        RegPnl.setPreferredSize(new java.awt.Dimension(715, 455));
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
         jScrollPane1.setMaximumSize(new java.awt.Dimension(500, 100));
@@ -756,9 +815,8 @@ public class Inicio extends javax.swing.JFrame {
                                     .addComponent(jLabel17))
                                 .addGap(193, 193, 193)
                                 .addGroup(ConfPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(ConfPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -815,6 +873,8 @@ public class Inicio extends javax.swing.JFrame {
 
         CenterPnl.add(ConfPnl, "card2");
 
+        AyudaPnl.setPreferredSize(new java.awt.Dimension(715, 455));
+
         jLabel9.setText("PANEL AYUDA");
 
         javax.swing.GroupLayout AyudaPnlLayout = new javax.swing.GroupLayout(AyudaPnl);
@@ -856,7 +916,7 @@ public class Inicio extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(CenterPnl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(LeftPnl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1111,6 +1171,27 @@ public class Inicio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void SalirBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirBtnActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_SalirBtnActionPerformed
+
+    private void acercaDeLblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_acercaDeLblMouseClicked
+        // TODO add your handling code here:
+        AcercaDe a = new AcercaDe();
+        a.setVisible(true);
+    }//GEN-LAST:event_acercaDeLblMouseClicked
+
+    private void acercaDeLblMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_acercaDeLblMouseEntered
+        // TODO add your handling code here:
+        acercaDeLbl.setForeground(Color.LIGHT_GRAY);
+    }//GEN-LAST:event_acercaDeLblMouseEntered
+
+    private void acercaDeLblMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_acercaDeLblMouseExited
+        // TODO add your handling code here:
+        acercaDeLbl.setForeground(Color.WHITE);
+    }//GEN-LAST:event_acercaDeLblMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -1178,6 +1259,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JLabel TipoNegLbl;
     private javax.swing.JPanel TituloPnl;
     private javax.swing.JTextField UtilidadesTF;
+    private javax.swing.JLabel acercaDeLbl;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -1195,8 +1277,10 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

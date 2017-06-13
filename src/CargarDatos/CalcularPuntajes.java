@@ -199,8 +199,15 @@ public class CalcularPuntajes {
         porcentajeUtil= porcentajeUtil/(100);
         try
         {
-            precioDeVentaFl= Float.valueOf(costoProd)/(1-porcentajeUtil);
-            System.out.println("Obteniendo precio de Venta..."+String.valueOf(precioDeVentaFl));
+            System.out.println("***Calculo precio de venta***");
+            System.out.println("Costo de produccion: "+costoProd);
+            System.out.println("Utilidades: "+ utilidades);
+           // System.out.println("Porcentaje utilidad: "+porcentajeUtil);
+            //precioDeVentaFl= Float.valueOf(costoProd)/(1-porcentajeUtil);
+            float multi = Float.parseFloat(costoProd) * porcentajeUtil;
+            float Pv = Float.valueOf(costoProd) + multi;
+            precioDeVentaFl= Pv;
+            System.out.println("Obteniendo precio de Venta..."+ Pv);
         }
         catch(Exception e)
         {
@@ -216,6 +223,7 @@ public class CalcularPuntajes {
         float porcentajeAux= 0;
         try
         {
+            System.out.println("Precio de venta: "+ precioDeVenta);
             porcentajeAux= (precioDeVenta * 100)/Float.parseFloat(sueldo);
             System.out.println("Porcentaje relacion sueldo: "+porcentajeAux);
         }
@@ -233,6 +241,7 @@ public class CalcularPuntajes {
         ArrayList<String> resultados= new ArrayList<String>();
         try
         {
+            System.out.println("Generar ventana de resultados..");
             //Creacion de ventana de resultados
             JFrame ventanaResultados = new JFrame();
             ventanaResultados.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -323,7 +332,7 @@ public class CalcularPuntajes {
             fondoResultadosLbl.add(resultadoMsjTA);
             
             guardarEnDB(DatosIngresados, resultados);
-            CrearPdf(fondoResultadosLbl, DatosIngresados, resultados);
+            CrearPdf(fondoResultadosLbl, DatosIngresados, resultados,precioDeVenta);
                     
             
             ventanaResultados.add(fondoResultadosLbl);
@@ -411,7 +420,7 @@ public class CalcularPuntajes {
         }
         return ResultadosFinales;
     }
-    private static void CrearPdf(JLabel fondoResultadosLbl, Variables DatosIngresados, ArrayList<String> resultados)
+    private static void CrearPdf(JLabel fondoResultadosLbl, Variables DatosIngresados, ArrayList<String> resultados, float precioDeVenta)
     {
         try {
             JButton pdfBtn= new JButton();
@@ -445,10 +454,12 @@ public class CalcularPuntajes {
                             doc.add(new Paragraph("\n"));
                             doc.add(new Paragraph("Datos Ingresados:"));
                             doc.add(new Paragraph("\n"));
+                            doc.add(new Paragraph("Nombre del Negocio: "+ DatosIngresados.getNombreNeg()));
                             doc.add(new Paragraph("Edad: "+DatosIngresados.getEdad()+" años"));
                             doc.add(new Paragraph("Costo de produccion: "+DatosIngresados.getCostoProduccion()+" pesos"));
                             doc.add(new Paragraph("Sueldo promedio: "+DatosIngresados.getSueldo()+" pesos"));
                             doc.add(new Paragraph("Utilidades: "+DatosIngresados.getUtilidades()+"%"));
+                            doc.add(new Paragraph("Precio de venta: "+ precioDeVenta));
                             doc.add(new Paragraph("Forma de pago: "+DatosIngresados.getFormaDePago()));                        
                             doc.add(new Paragraph("Negocio: "+DatosIngresados.getTipoNegocio()));
                             doc.add(new Paragraph("Sexo: "+DatosIngresados.getSexo()));

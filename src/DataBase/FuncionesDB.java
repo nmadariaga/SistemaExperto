@@ -30,14 +30,14 @@ public class FuncionesDB {
       Class.forName("org.sqlite.JDBC");
       c = DriverManager.getConnection("jdbc:sqlite:DataBase/SE_DATABASE.db");
       c.setAutoCommit(false);
-      System.out.println("Opened database successfully");
+      System.out.println("Base de datos abierta correctamente..");
       
       
       
       stmt = c.createStatement();
-        System.out.println("A crear script");
+        System.out.println("Crear script sql..");
       String sql = crearScriptSql(DatosIngresados, resultados);
-      System.out.println("script creado correctamente");
+      System.out.println("Script creado correctamente");
       stmt.executeUpdate(sql);
 
       stmt.close();
@@ -47,41 +47,13 @@ public class FuncionesDB {
       System.err.println( e.getClass().getName() + ": " + e.getMessage() );
       System.exit(0);
     }
-    System.out.println("Records created successfully");
+    System.out.println("Datos insertados correctamente..");
   }
     
     /**
      *
      * @param args
      */
-    public static void Select()
-  {
-    Connection c = null;
-    Statement stmt = null;
-    try {
-      Class.forName("org.sqlite.JDBC");
-      c = DriverManager.getConnection("jdbc:sqlite:test.db");
-      c.setAutoCommit(false);
-      System.out.println("Opened database successfully");
-
-      stmt = c.createStatement();
-      ResultSet rs = stmt.executeQuery( "SELECT * FROM nombrestbl;" );
-      while ( rs.next() ) {
-         int id = rs.getInt("ID");
-         String  name = rs.getString("Nombre");
-         System.out.println( "ID = " + id );
-         System.out.println( "NAME = " + name );
-         System.out.println();
-      }
-      rs.close();
-      stmt.close();
-      c.close();
-    } catch ( Exception e ) {
-      System.err.println( e.getClass().getName() + ": " + e.getMessage() );
-      System.exit(0);
-    }
-    System.out.println("Operation done successfully");
-  }
     
     private static String crearScriptSql(Variables DatosIngresados, ArrayList<String> resultados)
     {
@@ -143,7 +115,7 @@ public class FuncionesDB {
             Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection("jdbc:sqlite:DataBase/SE_DATABASE.db");
             c.setAutoCommit(false);
-            System.out.println("Opened database successfully");
+            System.out.println("Base de datos abierta correctamente..");
         
         
             stmt = c.createStatement();
@@ -169,6 +141,7 @@ public class FuncionesDB {
             rs.close();
             stmt.close();
             c.close();
+            System.out.println("Consulta realizada con éxito..");
             
         } catch (Exception e) {
         }
