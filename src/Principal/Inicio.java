@@ -27,8 +27,11 @@ import javax.swing.table.DefaultTableModel;
 import Entradas.Registro;
 import DataBase.FuncionesDB;
 import java.awt.Color;
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JLabel;
 
 public class Inicio extends javax.swing.JFrame {
@@ -91,7 +94,7 @@ public class Inicio extends javax.swing.JFrame {
         {            
             jScrollPane1.setVisible(false);
             registrosTbl.setVisible(false);
-            
+            model.setRowCount(0);
             JLabel mensaje = new JLabel();
             mensaje.setText("No se han realizado consultas");
             mensaje.setForeground(Color.WHITE);
@@ -139,6 +142,20 @@ public class Inicio extends javax.swing.JFrame {
             System.out.println(ex);
             JOptionPane.showMessageDialog(rootPane, ex);
      }
+    }
+    
+    public void ConexionHtml()
+    {
+        try {
+            String URL = obtenerRutaJar()+"/Archivos/Ayuda.html";
+            System.out.println(URL);
+            File rec = new File(URL);
+            AyudaPane.setEditable(false);
+            
+            AyudaPane.setPage(rec.toURI().toURL());
+        } catch (Exception ex) {
+            Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -211,6 +228,8 @@ public class Inicio extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         AyudaPnl = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        AyudaPane = new javax.swing.JEditorPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema Experto");
@@ -543,7 +562,7 @@ public class Inicio extends javax.swing.JFrame {
         InicioPnlLayout.setVerticalGroup(
             InicioPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(InicioPnlLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(34, 34, 34)
                 .addComponent(jLabel8)
                 .addGap(43, 43, 43)
                 .addGroup(InicioPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -575,7 +594,7 @@ public class Inicio extends javax.swing.JFrame {
                     .addGroup(InicioPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(NegCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel7)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                 .addGroup(InicioPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(NombreNegLbl)
                     .addComponent(NombreNegTF, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -640,11 +659,11 @@ public class Inicio extends javax.swing.JFrame {
         RegPnlLayout.setVerticalGroup(
             RegPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegPnlLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(34, 34, 34)
                 .addComponent(jLabel20)
                 .addGap(36, 36, 36)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addContainerGap(124, Short.MAX_VALUE))
         );
 
         CenterPnl.add(RegPnl, "card2");
@@ -873,25 +892,37 @@ public class Inicio extends javax.swing.JFrame {
 
         CenterPnl.add(ConfPnl, "card2");
 
+        AyudaPnl.setBackground(new java.awt.Color(27, 40, 56));
         AyudaPnl.setPreferredSize(new java.awt.Dimension(715, 455));
 
-        jLabel9.setText("PANEL AYUDA");
+        jLabel9.setFont(new java.awt.Font("Ubuntu Light", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("INFORMACION DE LAS VARIABLES");
+
+        jScrollPane3.setViewportView(AyudaPane);
 
         javax.swing.GroupLayout AyudaPnlLayout = new javax.swing.GroupLayout(AyudaPnl);
         AyudaPnl.setLayout(AyudaPnlLayout);
         AyudaPnlLayout.setHorizontalGroup(
             AyudaPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AyudaPnlLayout.createSequentialGroup()
-                .addContainerGap(369, Short.MAX_VALUE)
-                .addComponent(jLabel9)
-                .addGap(252, 252, 252))
+            .addGroup(AyudaPnlLayout.createSequentialGroup()
+                .addGroup(AyudaPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AyudaPnlLayout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 589, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(AyudaPnlLayout.createSequentialGroup()
+                        .addGap(229, 229, 229)
+                        .addComponent(jLabel9)))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
         AyudaPnlLayout.setVerticalGroup(
             AyudaPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AyudaPnlLayout.createSequentialGroup()
-                .addContainerGap(259, Short.MAX_VALUE)
+            .addGroup(AyudaPnlLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
                 .addComponent(jLabel9)
-                .addGap(163, 163, 163))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         CenterPnl.add(AyudaPnl, "card2");
@@ -1106,6 +1137,10 @@ public class Inicio extends javax.swing.JFrame {
         CenterPnl.add(AyudaPnl);
         CenterPnl.repaint();
         CenterPnl.revalidate();
+        
+        ConexionHtml();
+        
+        
     }//GEN-LAST:event_AyudaBtnActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -1230,6 +1265,7 @@ public class Inicio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AyudaBtn;
+    private javax.swing.JEditorPane AyudaPane;
     private javax.swing.JPanel AyudaPnl;
     private javax.swing.JPanel CenterPnl;
     private javax.swing.JButton ConfBtn;
@@ -1289,6 +1325,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable registrosTbl;
     // End of variables declaration//GEN-END:variables
 }
