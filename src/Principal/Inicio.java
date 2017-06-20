@@ -174,10 +174,10 @@ public class Inicio extends javax.swing.JFrame {
         acercaDeLbl = new javax.swing.JLabel();
         LeftPnl = new javax.swing.JPanel();
         InicioBtn = new javax.swing.JButton();
-        RegistroBtn = new javax.swing.JButton();
         ConfBtn = new javax.swing.JButton();
         SalirBtn = new javax.swing.JButton();
         AyudaBtn = new javax.swing.JButton();
+        RegistroBtn = new javax.swing.JButton();
         CenterPnl = new javax.swing.JPanel();
         InicioPnl = new javax.swing.JPanel();
         EdadLbl = new javax.swing.JLabel();
@@ -251,6 +251,7 @@ public class Inicio extends javax.swing.JFrame {
         acercaDeLbl.setFont(new java.awt.Font("Ubuntu Light", 0, 14)); // NOI18N
         acercaDeLbl.setForeground(new java.awt.Color(255, 255, 255));
         acercaDeLbl.setText("Acerca de..");
+        acercaDeLbl.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         acercaDeLbl.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 acercaDeLblMouseClicked(evt);
@@ -296,25 +297,16 @@ public class Inicio extends javax.swing.JFrame {
 
         InicioBtn.setFont(new java.awt.Font("Ubuntu Light", 1, 18)); // NOI18N
         InicioBtn.setText("INICIO");
+        InicioBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         InicioBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 InicioBtnActionPerformed(evt);
             }
         });
 
-        RegistroBtn.setFont(new java.awt.Font("Ubuntu Light", 1, 18)); // NOI18N
-        RegistroBtn.setText("REGISTRO");
-        RegistroBtn.setMaximumSize(new java.awt.Dimension(75, 25));
-        RegistroBtn.setMinimumSize(new java.awt.Dimension(75, 25));
-        RegistroBtn.setPreferredSize(new java.awt.Dimension(75, 25));
-        RegistroBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegistroBtnActionPerformed(evt);
-            }
-        });
-
         ConfBtn.setFont(new java.awt.Font("Ubuntu Light", 1, 18)); // NOI18N
         ConfBtn.setText("CONFIGURACION");
+        ConfBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ConfBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConfBtnActionPerformed(evt);
@@ -323,6 +315,7 @@ public class Inicio extends javax.swing.JFrame {
 
         SalirBtn.setFont(new java.awt.Font("Ubuntu Light", 1, 18)); // NOI18N
         SalirBtn.setText("SALIR");
+        SalirBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         SalirBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SalirBtnActionPerformed(evt);
@@ -331,9 +324,19 @@ public class Inicio extends javax.swing.JFrame {
 
         AyudaBtn.setFont(new java.awt.Font("Ubuntu Light", 1, 18)); // NOI18N
         AyudaBtn.setText("AYUDA");
+        AyudaBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         AyudaBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AyudaBtnActionPerformed(evt);
+            }
+        });
+
+        RegistroBtn.setFont(new java.awt.Font("Ubuntu Light", 1, 18)); // NOI18N
+        RegistroBtn.setText("REGISTRO");
+        RegistroBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        RegistroBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegistroBtnActionPerformed(evt);
             }
         });
 
@@ -341,21 +344,21 @@ public class Inicio extends javax.swing.JFrame {
         LeftPnl.setLayout(LeftPnlLayout);
         LeftPnlLayout.setHorizontalGroup(
             LeftPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(RegistroBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(SalirBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(ConfBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
             .addComponent(InicioBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(AyudaBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(RegistroBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         LeftPnlLayout.setVerticalGroup(
             LeftPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LeftPnlLayout.createSequentialGroup()
                 .addComponent(InicioBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
+                .addGap(27, 27, 27)
                 .addComponent(RegistroBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
+                .addGap(18, 18, 18)
                 .addComponent(ConfBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
+                .addGap(26, 26, 26)
                 .addComponent(AyudaBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(SalirBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -431,6 +434,7 @@ public class Inicio extends javax.swing.JFrame {
         FormaPagoLbl.setText(" Forma de Pago:");
 
         FormaPagoCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Efectivo", "Debito", "Credito", "Cheque" }));
+        FormaPagoCB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         FormaPagoCB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FormaPagoCBActionPerformed(evt);
@@ -442,6 +446,7 @@ public class Inicio extends javax.swing.JFrame {
         TipoNegLbl.setText("Tipo de Negocio:");
 
         TipoNegCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Servicio", "Producto" }));
+        TipoNegCB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         TipoNegCB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TipoNegCBActionPerformed(evt);
@@ -453,8 +458,10 @@ public class Inicio extends javax.swing.JFrame {
         SexoLbl.setText("Sexo:");
 
         SexoCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Ambos", "Mujer", "Hombre" }));
+        SexoCB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         NegCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione" }));
+        NegCB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         NegCB.setEnabled(false);
 
         jLabel7.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
@@ -631,12 +638,30 @@ public class Inicio extends javax.swing.JFrame {
         });
         registrosTbl.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         registrosTbl.setColumnSelectionAllowed(true);
-        registrosTbl.setMinimumSize(new java.awt.Dimension(195, 64));
+        registrosTbl.setMaximumSize(new java.awt.Dimension(140, 3000));
+        registrosTbl.setMinimumSize(new java.awt.Dimension(1400, 2000));
         registrosTbl.setName(""); // NOI18N
-        registrosTbl.setPreferredSize(new java.awt.Dimension(1150, 64));
+        registrosTbl.setPreferredSize(new java.awt.Dimension(1400, 1000));
+        registrosTbl.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         registrosTbl.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(registrosTbl);
         registrosTbl.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        if (registrosTbl.getColumnModel().getColumnCount() > 0) {
+            registrosTbl.getColumnModel().getColumn(0).setPreferredWidth(50);
+            registrosTbl.getColumnModel().getColumn(0).setMaxWidth(50);
+            registrosTbl.getColumnModel().getColumn(1).setPreferredWidth(200);
+            registrosTbl.getColumnModel().getColumn(2).setPreferredWidth(50);
+            registrosTbl.getColumnModel().getColumn(3).setPreferredWidth(100);
+            registrosTbl.getColumnModel().getColumn(4).setPreferredWidth(120);
+            registrosTbl.getColumnModel().getColumn(5).setPreferredWidth(100);
+            registrosTbl.getColumnModel().getColumn(6).setPreferredWidth(120);
+            registrosTbl.getColumnModel().getColumn(9).setPreferredWidth(150);
+            registrosTbl.getColumnModel().getColumn(10).setPreferredWidth(150);
+            registrosTbl.getColumnModel().getColumn(11).setMinWidth(300);
+            registrosTbl.getColumnModel().getColumn(11).setPreferredWidth(150);
+            registrosTbl.getColumnModel().getColumn(11).setMaxWidth(400);
+            registrosTbl.getColumnModel().getColumn(12).setPreferredWidth(100);
+        }
 
         jLabel20.setFont(new java.awt.Font("Ubuntu Light", 1, 18)); // NOI18N
         jLabel20.setForeground(java.awt.Color.white);
@@ -977,20 +1002,6 @@ public class Inicio extends javax.swing.JFrame {
         CenterPnl.revalidate();
     }//GEN-LAST:event_InicioBtnActionPerformed
 
-    private void RegistroBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistroBtnActionPerformed
-        // TODO add your handling code here:        
-        CenterPnl.removeAll();
-        CenterPnl.repaint();
-        CenterPnl.revalidate();
-        
-        CenterPnl.add(RegPnl);
-        CenterPnl.repaint();
-        CenterPnl.revalidate();
-        RegistroBtn.disable();
-        
-        llenarTabla();
-    }//GEN-LAST:event_RegistroBtnActionPerformed
-
     private void ConfBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfBtnActionPerformed
         // TODO add your handling code here:}
         CenterPnl.removeAll();
@@ -1226,6 +1237,19 @@ public class Inicio extends javax.swing.JFrame {
         // TODO add your handling code here:
         acercaDeLbl.setForeground(Color.WHITE);
     }//GEN-LAST:event_acercaDeLblMouseExited
+
+    private void RegistroBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistroBtnActionPerformed
+        // TODO add your handling code here:
+        CenterPnl.removeAll();
+        CenterPnl.repaint();
+        CenterPnl.revalidate();
+        
+        CenterPnl.add(RegPnl);
+        CenterPnl.repaint();
+        CenterPnl.revalidate();
+        
+        llenarTabla();
+    }//GEN-LAST:event_RegistroBtnActionPerformed
 
     /**
      * @param args the command line arguments
