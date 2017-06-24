@@ -58,7 +58,7 @@ public class AcercaDe extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Noto Sans", 0, 11)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel7.setText("Versión 1.0");
+        jLabel7.setText("Versión 0.90 BETA");
 
         jLabel5.setFont(new java.awt.Font("Noto Sans", 0, 11)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));

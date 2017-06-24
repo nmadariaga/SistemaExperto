@@ -209,7 +209,7 @@ public class CalcularPuntajes {
             precioDeVentaFl= Pv;
             System.out.println("Obteniendo precio de Venta..."+ Pv);
         }
-        catch(Exception e)
+        catch(NumberFormatException e)
         {
             System.out.println("Ha ocurrido un error calculando precio de venta.");
             JOptionPane.showMessageDialog(null,"Ha ocurrido un error calculando precio de venta.");
@@ -227,7 +227,7 @@ public class CalcularPuntajes {
             porcentajeAux= (precioDeVenta * 100)/Float.parseFloat(sueldo);
             System.out.println("Porcentaje relacion sueldo: "+porcentajeAux);
         }
-        catch(Exception e)
+        catch(NumberFormatException e)
         {
             System.out.println("Ha ocurrido un error obteniendo relacion precio-sueldo.");
             JOptionPane.showMessageDialog(null,"Ha ocurrido un error obteniendo precio-sueldo.");
