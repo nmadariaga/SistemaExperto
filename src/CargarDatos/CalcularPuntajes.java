@@ -370,26 +370,26 @@ public class CalcularPuntajes {
             else if(sumaCompatibilidad >= 1 && sumaCompatibilidad <= 5)
             {ResultadosFinales.add("Malo"); coordX= "M";}
             
-            porcentajeCompatibilidad= (((float)sumaCompatibilidad*10)/16);           
+            porcentajeCompatibilidad= (((float)sumaCompatibilidad*10)/16);//Esta es la nota de 1 a 10 de comptibilidad           
             ResultadosFinales.add(String.valueOf(df.format(porcentajeCompatibilidad)));
 
             relacionPS = Float.parseFloat(relacionPrecioSueldo);
             if(relacionPS > 0 && relacionPS <= 15)
             {
                 ResultadosFinales.add("Buena");
-                ResultadosFinales.add(String.valueOf(df.format(10-relacionPS*0.1)));
+                ResultadosFinales.add(String.valueOf(df.format(10-relacionPS*0.1)));//Esta es la nota de 1 a 10 de PS
                 coordY= "B";
             }
             else if(relacionPS > 15 && relacionPS <= 25)
             {
                 ResultadosFinales.add("Regular Buena");
-                ResultadosFinales.add(String.valueOf(df.format(10-relacionPS*0.1)));
+                ResultadosFinales.add(String.valueOf(df.format(10-relacionPS*0.1)));//Esta es la nota de 1 a 10 de PS
                 coordY= "RB";
             }
             else if(relacionPS > 25 && relacionPS <= 35)
             {
                 ResultadosFinales.add("Regular Mala");
-                ResultadosFinales.add(String.valueOf(df.format(10-relacionPS*0.1)));
+                ResultadosFinales.add(String.valueOf(df.format(10-relacionPS*0.1)));//Esta es la nota de 1 a 10 de PS
                 coordY= "RM";
             }
             else if(relacionPS > 35)
@@ -397,7 +397,7 @@ public class CalcularPuntajes {
                 ResultadosFinales.add("Mala");
                 double a= 10-relacionPS*0.1;
                 if(a > 0)
-                {ResultadosFinales.add(String.valueOf(df.format(10-relacionPS*0.1)));}
+                {ResultadosFinales.add(String.valueOf(df.format(10-relacionPS*0.1)));}//Esta es la nota de 1 a 10 de PS
                 else if(a<0)
                 {ResultadosFinales.add("0");}
                 
